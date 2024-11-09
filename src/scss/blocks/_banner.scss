@@ -1,0 +1,22 @@
+@use "../mixins";
+
+.banner {
+  padding: 15px 15px 145px;
+  
+  @include mixins.desktop {
+    padding: 15px 70px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+.banner-wrapper {
+  background-image: url("../assets/images/banner-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  
+  @include mixins.desktop {
+    background-image: url("../assets/images/banner-bg-desk.png");
+  }
+}

@@ -1,0 +1,181 @@
+@use "../variables";
+@use "../mixins";
+
+.slider {
+  position: relative;
+  max-width: 500px;
+  
+  margin: 0 auto;
+  
+  @include mixins.desktop {
+    max-width: 180%;
+    min-height: 520px;
+  }
+}
+
+.slider__paths {
+  display: none;
+  @include mixins.desktop {
+    display: block;
+    position: absolute;
+    
+    img {
+      position: absolute;
+      
+      &:nth-child(1) {
+        top: 82px;
+        left: 22px;
+      }
+      
+      &:nth-child(2) {
+        top: 311px;
+        left: 254px;
+      }
+      
+      &:nth-child(3) {
+        top: 184px;
+        left: 459px;
+      }
+      
+      &:nth-child(4) {
+        top: 51px;
+        left: 581px;
+      }
+      
+      &:nth-child(5) {
+        top: 103px;
+        left: 884px;
+      }
+    }
+  }
+}
+
+.slider__line {
+  margin-bottom: 15px;
+}
+
+.slider__slide {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+  padding: 40px 18px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.3);
+  border: 3px solid #ffffff;
+  border-radius: 35px 0 35px 0;
+  color: variables.$text-slide;
+  
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 44px;
+    line-height: 1;
+    width: 75px;
+    height: 75px;
+    background: #5e7600;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  
+  p {
+    margin: 0;
+    text-align: center;
+  }
+  
+  img {
+    position: absolute;
+    top: -29px;
+    right: -18px;
+  }
+  
+  @include mixins.desktop {
+    backdrop-filter: blur(15px);
+    flex-direction: row;
+    gap: 11px;
+    padding: 12px;
+    max-width: 286px;
+    position: absolute;
+    z-index: 2;
+    
+    &:nth-child(1) {
+      top: 0;
+      left: 0;
+    }
+    
+    &:nth-child(2) {
+      top: 245px;
+      left: 77px;
+    }
+    
+    &:nth-child(3) {
+      top: 342px;
+      left: 427px;
+    }
+    
+    &:nth-child(4) {
+      top: 113px;
+      left: 355px;
+    }
+    
+    &:nth-child(5) {
+      top: 41px;
+      left: 839px;
+    }
+    
+    &:nth-child(6) {
+      top: 197px;
+      left: 700px;
+    }
+    
+    img {
+      width: 25px;
+      top: -19px;
+      right: -14px;
+    }
+    
+    span {
+      width: 50px;
+      height: 50px;
+      font-size: 32px;
+    }
+    
+    p {
+      text-align: left;
+      font-size: 14px;
+    }
+  }
+}
+
+.slider__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.slider__btn {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: variables.$text-slide;
+  font-family: inherit;
+  border: none;
+  margin: 0;
+  
+  &--right {
+    flex-direction: row-reverse;
+    
+    img {
+      transform: rotate(180deg);
+      transform-origin: center;
+    }
+  }
+  
+  @include mixins.desktop {
+    display: none;
+  }
+}

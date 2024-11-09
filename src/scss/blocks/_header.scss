@@ -1,0 +1,106 @@
+@use "../variables";
+@use "../mixins";
+
+.header__wrapper {
+  padding: 30px 15px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  
+  @include mixins.desktop {
+    padding: 30px 70px 50px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
+
+.header__logo {
+  position: relative;
+  z-index: 3;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  
+  &.is-active {
+    color: #f2f3ef;
+  }
+  
+  @include mixins.desktop {
+    font-size: 32px;
+    line-height: 32px;
+    margin-right: 38px;
+  }
+}
+
+.header__button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 3;
+  
+  @include mixins.desktop {
+    display: none;
+  }
+}
+
+.header__button-text {
+  display: none;
+  color: variables.$text-black;
+  font-size: 12px;
+  
+  &.is-active {
+    display: block;
+  }
+}
+
+.header__button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 2px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 10px 0 0 #ffffff, 0 -10px 0 0 #ffffff;
+  }
+  
+  &::after {
+    background: #000000;
+    opacity: 0;
+    box-shadow: none;
+  }
+  
+  &.is-active {
+    &::before,
+    &::after {
+      height: 1px;
+    }
+    
+    &::before {
+      background: #000000;
+      transform: translate(-50%, -50%) rotate(45deg);
+      position: absolute;
+      box-shadow: 0 0 0 transparent;
+    }
+    
+    &::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
+
